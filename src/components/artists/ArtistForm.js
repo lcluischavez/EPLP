@@ -1,57 +1,46 @@
 import React, { useContext, useRef } from "react"
-import { AlbumContext } from "./AlbumProvider"
-import "./Albums.css"
+import { ArtistContext } from "./ArtistProvider"
+import "./Artists.css"
 
 export default props => {
-    const { addAlbum } = useContext(AlbumContext)
-    const albumName = useRef("")
-    const albumArtwork = useRef("")
-    const albumkArtistId = useRef("")
-    const currentAlbumUser = parseInt(localStorage.getItem("currentUser"))
+    const { addArtist } = useContext(ArtistContext)
+    const artistName = useRef("")
+    const currentArtistUser = parseInt(localStorage.getItem("currentUser"))
 
-    const constructNewAlbum = () => {
-            addAlbum({
-                name: albumName.current.value,
-                artwork: albumArtwork.current.value,
-                artistId: albumkArtistId.current.value,                
-                userId: currentAlbumUser
+    const constructNewArtist = () => {
+            addArtist({
+                name: artistName.current.value,
+                userId: currentArtistUser
             })
         }
     
     return (
-        <form className="albumForm">
-            <h2 className="albumForm__title">New Album</h2>
+        <form className="artistForm">
+            <h2 className="artistForm__title">New Arist</h2>
             <div className="form-group">
-                <label htmlFor="albumName">Album name</label>
+                <label htmlFor="artistName">Artist name</label>
                 <input
                     type="text"
-                    id="albumName"
-                    ref={albumName}
+                    id="artistName"
+                    ref={artistName}
                     required
                     autoFocus
                     className="form-control"
-                    placeholder="Album name"
-                />
-            </div>
-            <div className="form-group">
-                <label htmlFor="albumArtwork">Artwork</label>
-                <input
-                    type="text"
-                    id="albumArtwork"
-                    ref={albumArtwork}
-                    className="form-control"
-                    placeholder="Paste image url for artwork here..."
+                    placeholder="Artist name"
                 />
             </div>
             <button type="submit"
                 onClick={
                     evt => {
                         evt.preventDefault() // Prevent browser from submitting the form
-                        constructNewAlbum()
+                        constructNewArtist()
                     }
                 }
                 className="btn btn-primary">
-                Save Album
+                Save Artist
+            </button>
+            <button onClick={() => props.push("/MyCollection/create-album")}>
+                Add Album
             </button>
         </form>
     )

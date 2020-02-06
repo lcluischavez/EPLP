@@ -9,6 +9,8 @@ import { ArtistProvider } from "./artists/ArtistProvider";
 
 import AlbumList from "./albums/AlbumList";
 import AlbumForm from "./albums/AlbumForm";
+import ArtistForm from "./artists/ArtistForm";
+
 
 
 
@@ -23,7 +25,10 @@ export default props => {
                         path="/MyCollection"
                         render={props => <AlbumList {...props} />}
                     />
-                    <Route exact path="/albums/create">
+                    <Route exact path="/MyCollection/create-artist">
+                        <ArtistForm />
+                    </Route>
+                    <Route exact path="/MyCollection/create-album">
                         <AlbumForm />
                     </Route>
                 </ArtistProvider>                 

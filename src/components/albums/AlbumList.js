@@ -14,7 +14,7 @@ export default (props) => {
     return (
         <div className="albums">
             <h2>My Collection</h2>
-            <button onClick={() => props.history.push("/albums/create")}>
+            <button onClick={() => props.history.push("/MyCollection/create-artist")}>
                 Add Album
             </button>
             <article className="albumList">

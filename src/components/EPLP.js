@@ -9,7 +9,7 @@ import Register from "./auth/Register"
 export default () => (
     <>
         <header>
-            <h1>EPLP</h1>
+            <section className="background"></section>
         </header>
         <Route render={() => {
             if (localStorage.getItem("currentUser")) {
