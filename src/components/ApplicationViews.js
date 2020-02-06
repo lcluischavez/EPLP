@@ -25,12 +25,17 @@ export default props => {
                         path="/MyCollection"
                         render={props => <AlbumList {...props} />}
                     />
-                    <Route exact path="/MyCollection/create-artist">
-                        <ArtistForm />
-                    </Route>
-                    <Route exact path="/MyCollection/create-album">
-                        <AlbumForm />
-                    </Route>
+                    <Route
+                        exact
+                        path="/MyCollection/create-artist"
+                        render={props => <ArtistForm {...props} />}
+                    />
+                    {/* Render the location list when http://localhost:3000/ */}
+                    <Route
+                        exact
+                        path="/MyCollection/create-album"
+                        render={props => <AlbumForm {...props} />}
+                    />
                 </ArtistProvider>                 
             </AlbumProvider>
         </>

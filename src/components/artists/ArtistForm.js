@@ -39,7 +39,7 @@ export default props => {
                 className="btn btn-primary">
                 Save Artist
             </button>
-            <button onClick={() => props.push("/MyCollection/create-album")}>
+            <button onClick={() => props.history.push("/MyCollection/create-album")}>
                 Add Album
             </button>
         </form>
