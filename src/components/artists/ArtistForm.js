@@ -1,6 +1,5 @@
 import React, { useContext, useRef } from "react"
 import { ArtistContext } from "./ArtistProvider"
-import "./Artists.css"
 
 export default props => {
     const { addArtist } = useContext(ArtistContext)
@@ -12,6 +11,7 @@ export default props => {
                 name: artistName.current.value,
                 userId: currentArtistUser
             })
+            .then(() => props.history.push("/albums/create-album"))
         }
     
     return (
@@ -39,7 +39,7 @@ export default props => {
                 className="btn btn-primary">
                 Save Artist
             </button>
-            <button onClick={() => props.history.push("/MyCollection/create-album")}>
+            <button onClick={() => props.history.push("/albums/create-album")}>
                 Add Album
             </button>
         </form>

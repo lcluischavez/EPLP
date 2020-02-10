@@ -8,13 +8,12 @@ export default (props) => {
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/">EPLP</Link>
             </li>
-            <li className="navbar__item active">
-                <Link className="navbar__link" to="/MyCollection">My Collection</Link>
+            <li className="navbar__item">
+                <Link className="navbar__link" to="/albums">Albums</Link>
             </li>
-            <li className="navbar__item active">
-                <Link className="navbar__link" to="/Tracks">Tracks</Link>
+            <li className="navbar__item">
+                <Link className="navbar__link" to="/tracks">Tracks</Link>
             </li>
-
             {
                 localStorage.getItem("currentUser")
                     ? <li className="navbar__item">

@@ -29,30 +29,8 @@ export const TrackProvider = (props) => {
             .then(getTracks)
     }
 
-    const deleteTrack= track => {
-        return fetch(`http://localhost:8088/tracks/${track.id}`, {
-            method: "DELETE"
-        })
-        .then(getTracks)
-    }
-
-    const editTracks = (isComplete, id)=> {
-        return fetch(`http://localhost:8088/tracks/${id}`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-
-                done: isComplete
-
-            })
-        })
-            .then(getTracks)
-      
-      }
     /*
-        Load all tasks when the component is mounted. Ensure that
+        Load all animals when the component is mounted. Ensure that
         an empty array is the second argument to avoid infinite loop.
     */
     useEffect(() => {
@@ -60,12 +38,12 @@ export const TrackProvider = (props) => {
     }, [])
 
     useEffect(() => {
-        console.log("****  TASK APPLICATION STATE CHANGED  ****")
+        console.log("****  LOCATION APPLICATION STATE CHANGED  ****")
     }, [tracks])
 
     return (
         <TrackContext.Provider value={{
-            tracks, addTrack, deleteTrack, editTracks
+            tracks, addTrack
         }}>
             {props.children}
         </TrackContext.Provider>

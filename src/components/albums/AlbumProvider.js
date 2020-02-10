@@ -29,30 +29,16 @@ export const AlbumProvider = (props) => {
             .then(getAlbums)
     }
 
-    const deleteAlbum= album => {
-        return fetch(`http://localhost:8088/albums/${album.id}`, {
+    const releaseAlbum = albumId => {
+        return fetch(`http://localhost:8088/albums/${albumId}`, {
             method: "DELETE"
         })
-        .then(getAlbums)
-    }
-
-    const editAlbums = (isComplete, id)=> {
-        return fetch(`http://localhost:8088/albums/${id}`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-
-                done: isComplete
-
-            })
-        })
             .then(getAlbums)
-      
-      }
+    }
+    
+
     /*
-        Load all tasks when the component is mounted. Ensure that
+        Load all animals when the component is mounted. Ensure that
         an empty array is the second argument to avoid infinite loop.
     */
     useEffect(() => {
@@ -60,12 +46,12 @@ export const AlbumProvider = (props) => {
     }, [])
 
     useEffect(() => {
-        console.log("****  TASK APPLICATION STATE CHANGED  ****")
+        console.log("****  LOCATION APPLICATION STATE CHANGED  ****")
     }, [albums])
 
     return (
         <AlbumContext.Provider value={{
-            albums, addAlbum, deleteAlbum, editAlbums
+            albums, addAlbum, releaseAlbum
         }}>
             {props.children}
         </AlbumContext.Provider>

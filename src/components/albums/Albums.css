@@ -6,17 +6,15 @@ img {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    flex-basis: 50%;
 }
 
-
 .album {
+    flex-basis: 25%;
     margin: 1em;
     padding: 1em;
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 300px;
 }
 
 fieldset {

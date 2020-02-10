@@ -1,17 +1,18 @@
 import React from "react";
 import { Route } from "react-router-dom";
-
-import { UserProvider } from "./user/UserProvider"
+// import { UserProvider } from "./user/UserProvider"
 import { AlbumProvider } from "./albums/AlbumProvider";
+
+import AlbumDetail from "./albums/AlbumDetail";
+import AlbumForm from "./albums/AlbumForm";
+import AlbumList from "./albums/AlbumList";
+import ArtistForm from "./artists/ArtistForm";
 import { ArtistProvider } from "./artists/ArtistProvider";
+import TrackList from "./tracks/TrackList";
 import { TrackProvider } from "./tracks/TrackProvider";
 
 
-import AlbumList from "./albums/AlbumList";
-import TrackList from "./tracks/TrackList";
 
-import AlbumForm from "./albums/AlbumForm";
-import ArtistForm from "./artists/ArtistForm";
 
 
 export default props => {
@@ -23,34 +24,37 @@ export default props => {
                         {/* Render the location list when http://localhost:3000/ */}
                         <Route
                             exact
-                            path="/MyCollection"
+                            path="/albums"
                             render={props => <AlbumList {...props} />}
                         />
                         <Route
                             exact
-                            path="/MyCollection/create-artist"
+                            path="/albums/create-artist"
                             render={props => <ArtistForm {...props} />}
                         />
-                        {/* Render the location list when http://localhost:3000/ */}
                         <Route
-                            exact
-                            path="/MyCollection/create-album"
-                            render={props => <AlbumForm {...props} />}
+                        exact
+                        path="/albums/create-album"
+                        render={props => <AlbumForm {...props} />}
                         />
                         <Route
-                            exact
-                            path="/Tracks"
-                            render={props=> <TrackList {...props} />}
+                            path="/albums/:albumId(\d+)"
+                            render={props => <AlbumDetail {...props} />}
                         />
                     </TrackProvider>
-                </ArtistProvider>                 
+                </ArtistProvider>
+            </AlbumProvider>
+
+            <AlbumProvider>
+                <ArtistProvider>
+                    <TrackProvider>
+                        {/* Render the location list when http://localhost:3000/ */}
+                        <Route exact path="/tracks">
+                            <TrackList />
+                        </Route>
+                    </TrackProvider>
+                </ArtistProvider>
             </AlbumProvider>
         </>
     );
 };
-
-
-
-{/* <Route path="/albums/:albumId(\d+)" render={
-    props => <AlbumDetails {...props} />
-} /> */}

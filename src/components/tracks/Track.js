@@ -1,15 +1,11 @@
 import React from "react"
 import "./Tracks.css"
-import { Link } from "react-router-dom"
 
-export default ({ track, artist }) => (
-    
+export default ({ track, album, artist }) => (
     <section className="track">
-        <h3 className="track__name">
-            <Link to={`/tracks/${track.id}`}>
-                { track.name }
-            </Link>
-        </h3>
-        <div className="track__artist">{artist.name}</div>
+        <h3 className="track__name">{ track.name }</h3>
     </section>
 )
+
+{/* <div className="track__album">Album: { album.name }</div>
+<div className="track__artist">Artist: { artist.name }</div> */}
