@@ -13,13 +13,13 @@ export const TrackProvider = (props) => {
     const [tracks, setTracks] = useState([])
 
     const getTracks = () => {
-        return fetch("https://api.deezer.com/album/10169168")
+        return fetch("http://localhost:8088/tracks")
             .then(res => res.json())
             .then(setTracks)
     }
 
     const addTrack = track => {
-        return fetch("https://api.deezer.com/album/10169168", {
+        return fetch("http://localhost:8088/tracks", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -29,7 +29,28 @@ export const TrackProvider = (props) => {
             .then(getTracks)
     }
 
+    const deleteTrack= track => {
+        return fetch(`http://localhost:8088/tracks/${track.id}`, {
+            method: "DELETE"
+        })
+        .then(getTracks)
+    }
 
+    const editTracks = (isComplete, id)=> {
+        return fetch(`http://localhost:8088/tracks/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+
+                done: isComplete
+
+            })
+        })
+            .then(getTracks)
+      
+      }
     /*
         Load all tasks when the component is mounted. Ensure that
         an empty array is the second argument to avoid infinite loop.
@@ -44,32 +65,9 @@ export const TrackProvider = (props) => {
 
     return (
         <TrackContext.Provider value={{
-            tracks
+            tracks, addTrack, deleteTrack, editTracks
         }}>
             {props.children}
         </TrackContext.Provider>
     )
 }
-
-// const deleteTrack = track => {
-//     return fetch(`http://localhost:8088/tasks/${task.id}`, {
-//         method: "DELETE"
-//     })
-//     .then(getTracks)
-// }
-
-// const editTracks = (isComplete, id)=> {
-//     return fetch(`http://localhost:8088/tasks/${id}`, {
-//         method: "PATCH",
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify({
-
-//             done: isComplete
-
-//         })
-//     })
-//         .then(getTracks)
-  
-//   }

@@ -5,7 +5,6 @@ import "./Albums.css"
 import { ArtistContext } from "../artists/ArtistProvider"
 
 
-
 export default (props) => {
     const { albums } = useContext(AlbumContext)
     const { artists } = useContext(ArtistContext)
@@ -20,7 +19,7 @@ export default (props) => {
             <article className="albumList">
             {
                 albums.map(album => {
-                    const maker = artists.find(alb => alb.id === album.artistId)
+                    const maker = artists.find(alb => alb.id === album.artistId) || {}
             
                     return <Album key={album.id}
                                     artist={maker}

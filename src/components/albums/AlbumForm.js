@@ -5,7 +5,7 @@ import "./Albums.css"
 
 export default props => {
     const { artists } = useContext(ArtistContext)
-    const { addAlbum, albums, updateAlbum } = useContext(AlbumContext)
+    const { addAlbum, albums } = useContext(AlbumContext)
     const [album, setAlbum] = useState({})
     const albumName = useRef("")
     const albumArtwork = useRef("")    
