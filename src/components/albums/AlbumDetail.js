@@ -25,7 +25,7 @@ export default props => {
 
 
     return (
-        <section className="album">
+        <section className="trackList">
             <h3 className="album__name">{album.name}</h3>
             <div className="album__owner">{artist.name}</div>
             <ul>
@@ -35,6 +35,10 @@ export default props => {
                             </li>
                         ))}
             </ul>
+            <button onClick={() => props.history.push("/albums/create-track")}>
+                Add Track
+            </button>
+            <br/>
             <button
                 className="btn--release"
                 onClick={() => {
@@ -47,15 +51,4 @@ export default props => {
         </section>
     );
 };
-
-// function RenderEvents() {
-//     if (track.userId === albumId) {
-//       return <section className="myEvent">
-//           <h3 className="event__name">{event.name}</h3>
-//           <div className="event__location">{event.location}</div>
-//           <div className="event__time">{new Date(event.timestamp).toLocaleDateString('en-US') + " " + timeFormat(event.timestamp)}</div>
-//           <div>{LoggedInUserButtons()}</div>
-//         </section>
-//     }
-// return RenderEvents()
 

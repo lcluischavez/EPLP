@@ -29,6 +29,13 @@ export const TrackProvider = (props) => {
             .then(getTracks)
     }
 
+    const releaseTrack = trackId => {
+        return fetch(`http://localhost:8088/tracks/${trackId}`, {
+            method: "DELETE"
+        })
+            .then(getTracks)
+    }
+
     /*
         Load all animals when the component is mounted. Ensure that
         an empty array is the second argument to avoid infinite loop.
@@ -43,7 +50,7 @@ export const TrackProvider = (props) => {
 
     return (
         <TrackContext.Provider value={{
-            tracks, addTrack
+            tracks, addTrack, releaseTrack
         }}>
             {props.children}
         </TrackContext.Provider>

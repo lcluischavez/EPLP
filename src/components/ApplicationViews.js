@@ -10,9 +10,7 @@ import ArtistForm from "./artists/ArtistForm";
 import { ArtistProvider } from "./artists/ArtistProvider";
 import TrackList from "./tracks/TrackList";
 import { TrackProvider } from "./tracks/TrackProvider";
-
-
-
+import TrackForm from "./tracks/TrackForm";
 
 
 export default props => {
@@ -40,6 +38,10 @@ export default props => {
                         <Route
                             path="/albums/:albumId(\d+)"
                             render={props => <AlbumDetail {...props} />}
+                        />
+                        <Route
+                            path="/albums/create-track"
+                            render={props => <TrackForm {...props} />}
                         />
                     </TrackProvider>
                 </ArtistProvider>
