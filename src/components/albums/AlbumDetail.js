@@ -16,12 +16,11 @@ export default props => {
         section of the chapter.
     */
     const chosenAlbumId = parseInt(props.match.params.albumId, 10);
-
     const foundTracks = tracks.filter(alb => alb.albumId === chosenAlbumId) || {};
     
-    const artist = artists.find(art => art.id === foundTracks.artistId) || {};
-    // const album = foundAlbums.filter(tra => tra.id === foundTracks.chosenAlbumId) || {};
     const album = albums.find(alb => alb.id === chosenAlbumId) || {}
+    const artist = artists.find(art => art.id === album.artistId) || {}
+    
 
 
     return (
