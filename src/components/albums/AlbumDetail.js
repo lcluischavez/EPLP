@@ -11,24 +11,30 @@ export default props => {
     const { albums, releaseAlbum } = useContext(AlbumContext);
     const { artists } = useContext(ArtistContext);
     const { tracks } = useContext(TrackContext);
-
     /*
         This line of code will be explained in the next
         section of the chapter.
     */
     const chosenAlbumId = parseInt(props.match.params.albumId, 10);
 
-    const album = albums.find(alb => alb.id === chosenAlbumId) || {};
-    const artist = artists.find(art => art.id === album.artistId) || {};
-    const track = tracks.filter(tra => tra.id === album.trackId) || {};
+    const foundTracks = tracks.filter(alb => alb.albumId === chosenAlbumId) || {};
+    
+    const artist = artists.find(art => art.id === foundTracks.artistId) || {};
+    // const album = foundAlbums.filter(tra => tra.id === foundTracks.chosenAlbumId) || {};
+    const album = albums.find(alb => alb.id === chosenAlbumId) || {}
+
 
     return (
         <section className="album">
             <h3 className="album__name">{album.name}</h3>
             <div className="album__owner">{artist.name}</div>
-            <ol>
-                <li>{track.name}</li>
-            </ol>
+            <ul>
+                {foundTracks.map(tra => (
+                            <li key={tra.id} value={tra.id}>
+                                {tra.name}
+                            </li>
+                        ))}
+            </ul>
             <button
                 className="btn--release"
                 onClick={() => {
@@ -41,3 +47,15 @@ export default props => {
         </section>
     );
 };
+
+// function RenderEvents() {
+//     if (track.userId === albumId) {
+//       return <section className="myEvent">
+//           <h3 className="event__name">{event.name}</h3>
+//           <div className="event__location">{event.location}</div>
+//           <div className="event__time">{new Date(event.timestamp).toLocaleDateString('en-US') + " " + timeFormat(event.timestamp)}</div>
+//           <div>{LoggedInUserButtons()}</div>
+//         </section>
+//     }
+// return RenderEvents()
+
