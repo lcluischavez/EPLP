@@ -4,7 +4,7 @@ import "./Albums.css";
 import { TrackContext } from "../tracks/TrackProvider";
 
 export default props => {
-    const { albums, releaseAlbum } = useContext(AlbumContext);
+    const { mixtapes, releaseMixtape } = useContext(MixtapeContext);
     const { tracks } = useContext(TrackContext);
     /*
         This line of code will be explained in the next
