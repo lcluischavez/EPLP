@@ -37,7 +37,7 @@ export const TrackProvider = (props) => {
     }
 
     /*
-        Load all animals when the component is mounted. Ensure that
+        Load all tracks when the component is mounted. Ensure that
         an empty array is the second argument to avoid infinite loop.
     */
     useEffect(() => {

@@ -52,7 +52,7 @@ export const ArtistProvider = (props) => {
       
       }
     /*
-        Load all tasks when the component is mounted. Ensure that
+        Load all artists when the component is mounted. Ensure that
         an empty array is the second argument to avoid infinite loop.
     */
     useEffect(() => {
