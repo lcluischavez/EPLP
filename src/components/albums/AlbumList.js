@@ -12,7 +12,7 @@ export default (props) => {
     
     return (
         <div className="albums">
-            <h2>Albums</h2>
+            <h2>My Collection</h2>
             <button onClick={() => props.history.push("/albums/create-artist")}>
                 Add Artist & Album
             </button>
@@ -23,7 +23,7 @@ export default (props) => {
                     
                         return <Album key={album.id}
                                     artist={maker}
-                                    album={album} />
+                                    album={album} {...props}/>
                     })
                 }
             </article>

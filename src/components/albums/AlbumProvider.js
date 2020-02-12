@@ -35,6 +35,17 @@ export const AlbumProvider = (props) => {
         })
             .then(getAlbums)
     }
+
+    const updateAlbum = album => {
+        return fetch(`http://localhost:8088/albums/${album.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(album)
+        })
+            .then(getAlbums)
+    }
     
 
     /*
@@ -51,7 +62,7 @@ export const AlbumProvider = (props) => {
 
     return (
         <AlbumContext.Provider value={{
-            albums, addAlbum, releaseAlbum
+            albums, addAlbum, releaseAlbum, updateAlbum
         }}>
             {props.children}
         </AlbumContext.Provider>
