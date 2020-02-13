@@ -3,10 +3,12 @@ import { AlbumContext } from "./AlbumProvider";
 import "./Albums.css";
 import { ArtistContext } from "../artists/ArtistProvider";
 import { TrackContext } from "../tracks/TrackProvider";
+import { AlbumTypeContext } from "../albumTypes/AlbumTypeProvider";
 
 export default props => {
     const { albums, releaseAlbum } = useContext(AlbumContext);
     const { artists } = useContext(ArtistContext);
+    const { albumTypes } = useContext(AlbumTypeContext);
     const { tracks } = useContext(TrackContext);
     /*
         This line of code will be explained in the next
@@ -18,11 +20,14 @@ export default props => {
 
     const album = albums.find(alb => alb.id === chosenAlbumId) || {};
     const artist = artists.find(art => art.id === album.artistId) || {};
+    const albumType = albumTypes.find(abt => abt.id === album.albumTypeId) || {};
+
 
     return (
         <section className="trackList">
             <h3 className="album__name">{album.name}</h3>
             <div className="album__owner">{artist.name}</div>
+            <div className="album__kind">{albumType.name}</div>
             <ul>
                 {foundTracks.map(tra => (
                     <li key={tra.id} value={tra.id}>

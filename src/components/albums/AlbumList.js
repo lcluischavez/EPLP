@@ -3,12 +3,14 @@ import { AlbumContext } from "./AlbumProvider"
 import Album from "./Album"
 import "./Albums.css"
 import { ArtistContext } from "../artists/ArtistProvider"
+import { AlbumTypeContext } from "../albumTypes/AlbumTypeProvider"
 
 
 
 export default (props) => {
     const { albums } = useContext(AlbumContext)
     const { artists } = useContext(ArtistContext)
+    const { albumTypes } = useContext(AlbumTypeContext)
     
     return (
         <div className="albums">
@@ -20,9 +22,11 @@ export default (props) => {
                 {
                     albums.map(album => {
                         const maker = artists.find(art => art.id === album.artistId)
+                        const kind = albumTypes.find(abt => abt.id === album.albumTypeId)
                     
                         return <Album key={album.id}
                                     artist={maker}
+                                    albumType={kind}
                                     album={album} {...props}/>
                     })
                 }

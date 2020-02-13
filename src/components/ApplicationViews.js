@@ -5,6 +5,7 @@ import { AlbumProvider } from "./albums/AlbumProvider";
 import { ArtistProvider } from "./artists/ArtistProvider";
 import { TrackProvider } from "./tracks/TrackProvider";
 import { MixtapeProvider } from "./mixtapes/MixtapeProvider";
+import { AlbumTypeProvider } from "./albumTypes/AlbumTypeProvider";
 
 import AlbumList from "./albums/AlbumList";
 import AlbumDetail from "./albums/AlbumDetail";
@@ -19,7 +20,7 @@ export default props => {
     return (
         <>
             <AlbumProvider>
-                {/* <MixtapeProvider> */}
+                <AlbumTypeProvider>
                     <ArtistProvider>
                         <TrackProvider>
                             {/* Render the location list when http://localhost:3000/ */}
@@ -53,7 +54,7 @@ export default props => {
                             />
                         </TrackProvider>
                     </ArtistProvider>
-                {/* </MixtapeProvider> */}
+                </AlbumTypeProvider>
             </AlbumProvider>
 
             <AlbumProvider>
