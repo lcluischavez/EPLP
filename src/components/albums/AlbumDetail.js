@@ -35,27 +35,34 @@ export default props => {
                     </li>
                 ))}
             </ul>
-            <button onClick={() => props.history.push("/MyCollection/create-track")}>
-                Add Track
-            </button>
+            <a className="but">
+                <button className="button1" onClick={() => props.history.push("/MyCollection/create-track")}>
+                    Add Track
+                </button>
+            </a>
             <br />
-            <button
-            onClick={() => {
-                props.history.push(`/MyCollection/edit/${album.id}`);
-            }}
-             >
-            Edit
-        </button>
-            <button
-                className="btn--release"
+            <a className="but">
+                <button
+                className="button2"
                 onClick={() => {
-                    releaseAlbum(chosenAlbumId).then(() => {
-                        props.history.push("/MyCollection");
-                    });
+                    props.history.push(`/MyCollection/edit/${album.id}`);
                 }}
-            >
-                Delete
-            </button>
+                >
+                Edit
+                </button>
+            </a>
+            <a className="but">
+                <button
+                    className="button2"
+                    onClick={() => {
+                        releaseAlbum(chosenAlbumId).then(() => {
+                            props.history.push("/MyCollection");
+                        });
+                    }}
+                >
+                    Delete
+                </button>
+            </a>
         </section>
     );
 };

@@ -11,14 +11,29 @@ import AlbumList from "./albums/AlbumList";
 import AlbumDetail from "./albums/AlbumDetail";
 import AlbumForm from "./albums/AlbumForm";
 import ArtistForm from "./artists/ArtistForm";
-import TrackList from "./tracks/TrackList";
 import TrackForm from "./tracks/TrackForm";
 import MixtapeList from "./mixtapes/MixtapeList";
 import MixtapeForm from "./mixtapes/MixtapeList";
+import Splash from "./home/Splash";
 
 export default props => {
     return (
         <>
+          <AlbumProvider>
+                <ArtistProvider>
+                    <TrackProvider>
+                        <MixtapeProvider>
+                            {/* Render the location list when http://localhost:3000/ */}
+                            <Route
+                                exact
+                                path="/"
+                                render={props => <Splash {...props} />}
+                            />
+                        </MixtapeProvider>
+                    </TrackProvider>
+                </ArtistProvider>
+            </AlbumProvider>
+
             <AlbumProvider>
                 <AlbumTypeProvider>
                     <ArtistProvider>
@@ -76,11 +91,6 @@ export default props => {
                                 exact
                                 path="/Mixtapes/edit/mixtapeId(\d+)"
                                 render={props => <MixtapeForm {...props} />}
-                            />
-                            <Route
-                                exact
-                                path="/Mixtapes"
-                                render={props => <TrackList {...props} />}
                             />
                         </MixtapeProvider>
                     </TrackProvider>
