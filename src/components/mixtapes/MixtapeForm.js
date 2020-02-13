@@ -43,7 +43,7 @@ useEffect(() =>{
                     artwork: mixtape.artwork,
                     userId: parseInt(localStorage.getItem("currentUser"))
                 })
-                    .then(() => props.history.push("/tracks"))
+                    .then(() => props.history.push("/Mixtapes"))
             } else {
 
                 addMixtape({
@@ -51,7 +51,7 @@ useEffect(() =>{
                     artwork: mixtape.artwork,
                     userId: parseInt(localStorage.getItem("currentUser"))
                 })
-                    .then(() => props.history.push("/tracks"))
+                    .then(() => props.history.push("/Mixtapes"))
             }
         
     }

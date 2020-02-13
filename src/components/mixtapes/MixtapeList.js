@@ -13,7 +13,7 @@ export default (props) => {
     return (
         <div className="mixtapes">
             <h2>Mixtapes</h2>
-            <button onClick={() => props.history.push("/tracks/create-mixtape")}>
+            <button onClick={() => props.history.push("/Mixtapes/create-mixtape")}>
                 Add Mixtape
             </button>
             <article className="mixtapeList">

@@ -64,22 +64,22 @@ export default props => {
                             {/* Render the location list when http://localhost:3000/ */}
                             <Route
                                 exact
-                                path="/tracks"
+                                path="/Mixtapes"
                                 render={props => <MixtapeList {...props} />}
                             />
                             <Route
                             exact
-                            path="/tracks/create-mixtape"
+                            path="/Mixtapes/create-mixtape"
                             render={props => <MixtapeForm {...props} />}
                             />
                             <Route
                                 exact
-                                path="/tracks/edit/mixtapeId(\d+)"
+                                path="/Mixtapes/edit/mixtapeId(\d+)"
                                 render={props => <MixtapeForm {...props} />}
                             />
                             <Route
                                 exact
-                                path="/tracks"
+                                path="/Mixtapes"
                                 render={props => <TrackList {...props} />}
                             />
                         </MixtapeProvider>

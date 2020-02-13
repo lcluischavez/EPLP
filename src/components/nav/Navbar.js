@@ -12,7 +12,7 @@ export default (props) => {
                 <Link className="navbar__link" to="/MyCollection">My Collection</Link>
             </li>
             <li className="navbar__item">
-                <Link className="navbar__link" to="/tracks">Concerts/Festivals</Link>
+                <Link className="navbar__link" to="/Mixtapes">Mixtapes</Link>
             </li>
             {
                 localStorage.getItem("currentUser")

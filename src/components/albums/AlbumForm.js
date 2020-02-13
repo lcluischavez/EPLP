@@ -1,10 +1,13 @@
 import React, { useContext, useState, useEffect } from "react"
 import { AlbumContext } from "./AlbumProvider"
 import { ArtistContext } from "../artists/ArtistProvider";
+import { AlbumTypeContext } from "../albumTypes/AlbumTypeProvider";
+
 
 
 export default props => {
     const { artists } = useContext(ArtistContext)
+    const { albumTypes } = useContext(AlbumTypeContext)
     const { addAlbum, albums, updateAlbum } = useContext(AlbumContext)
     const [album, setAlbum] = useState({})
 
@@ -36,6 +39,8 @@ useEffect(() =>{
 
     const constructNewAlbum = () => {
         const artistId = parseInt(album.artistId)
+        const albumTypeId = parseInt(album.albumTypeId)
+
 
         
             if (editMode) {
@@ -45,6 +50,7 @@ useEffect(() =>{
                     name: album.name,
                     artwork: album.artwork,
                     artistId: artistId,
+                    albumTypeId: albumTypeId,
                     note: album.note,
                     userId: parseInt(localStorage.getItem("currentUser"))
                 })
@@ -55,6 +61,7 @@ useEffect(() =>{
                     name: album.name,
                     artwork: album.artwork,
                     artistId: artistId,
+                    albumTypeId: albumTypeId,
                     note: album.note,
                     userId: parseInt(localStorage.getItem("currentUser"))
                 })
@@ -97,6 +104,25 @@ useEffect(() =>{
                         defaultValue={album.artwork}
                         onChange={handleControlledInputChange}
                     />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="albumTypeId">Type: </label>
+                    <select
+                        name="albumTypeId"
+                        className="form-control"
+                        proptype="int"
+                        defaultValue={album.artistTypeId}
+                        onChange={handleControlledInputChange}>
+
+                        <option value="0">Select a type</option>
+                        {albumTypes.map(e => (
+                            <option key={e.id} value={e.id}>
+                                {e.name}
+                            </option>
+                        ))}
+                    </select>
                 </div>
             </fieldset>
             <fieldset>
