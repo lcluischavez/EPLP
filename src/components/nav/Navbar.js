@@ -9,7 +9,7 @@ export default (props) => {
                 <Link className="navbar__link" to="/">EPLP</Link>
             </li>
             <li className="navbar__item">
-                <Link className="navbar__link" to="/albums">My Collection</Link>
+                <Link className="navbar__link" to="/MyCollection">My Collection</Link>
             </li>
             <li className="navbar__item">
                 <Link className="navbar__link" to="/tracks">Concerts/Festivals</Link>

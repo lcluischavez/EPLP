@@ -30,13 +30,13 @@ export default props => {
                     </li>
                 ))}
             </ul>
-            <button onClick={() => props.history.push("/albums/create-track")}>
+            <button onClick={() => props.history.push("/MyCollection/create-track")}>
                 Add Track
             </button>
             <br />
             <button
             onClick={() => {
-                props.history.push(`/albums/edit/${album.id}`);
+                props.history.push(`/MyCollection/edit/${album.id}`);
             }}
              >
             Edit
@@ -45,7 +45,7 @@ export default props => {
                 className="btn--release"
                 onClick={() => {
                     releaseAlbum(chosenAlbumId).then(() => {
-                        props.history.push("/albums");
+                        props.history.push("/MyCollection");
                     });
                 }}
             >

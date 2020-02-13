@@ -11,7 +11,7 @@ export default props => {
                 name: artistName.current.value,
                 userId: currentArtistUser
             })
-            .then(() => props.history.push("/albums/create-album"))
+            .then(() => props.history.push("/MyCollection/create-album"))
         }
     
     return (
@@ -39,7 +39,7 @@ export default props => {
                 className="btn btn-primary">
                 Save Artist
             </button>
-            <button onClick={() => props.history.push("/albums/create-album")}>
+            <button onClick={() => props.history.push("/MyCollection/create-album")}>
                 Add Album
             </button>
         </form>

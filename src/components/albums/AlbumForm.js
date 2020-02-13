@@ -48,7 +48,7 @@ useEffect(() =>{
                     note: album.note,
                     userId: parseInt(localStorage.getItem("currentUser"))
                 })
-                    .then(() => props.history.push("/albums"))
+                    .then(() => props.history.push("/MyCollection"))
             } else {
 
                 addAlbum({
@@ -58,7 +58,7 @@ useEffect(() =>{
                     note: album.note,
                     userId: parseInt(localStorage.getItem("currentUser"))
                 })
-                    .then(() => props.history.push("/albums"))
+                    .then(() => props.history.push("/MyCollection"))
             }
         
     }

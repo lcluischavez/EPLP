@@ -13,61 +13,75 @@ import ArtistForm from "./artists/ArtistForm";
 import TrackList from "./tracks/TrackList";
 import TrackForm from "./tracks/TrackForm";
 import MixtapeList from "./mixtapes/MixtapeList";
-
+import MixtapeForm from "./mixtapes/MixtapeList";
 
 export default props => {
     return (
         <>
             <AlbumProvider>
-                <MixtapeProvider>
+                {/* <MixtapeProvider> */}
                     <ArtistProvider>
                         <TrackProvider>
                             {/* Render the location list when http://localhost:3000/ */}
                             <Route
                                 exact
-                                path="/albums"
+                                path="/MyCollection"
                                 render={props => <AlbumList {...props} />}
                             />
                             <Route
                                 exact
-                                path="/albums/create-artist"
+                                path="/MyCollection/create-artist"
                                 render={props => <ArtistForm {...props} />}
                             />
                             <Route
                             exact
-                            path="/albums/create-album"
+                            path="/MyCollection/create-album"
                             render={props => <AlbumForm {...props} />}
                             />
                             <Route
-                                path="/albums/:albumId(\d+)"
+                                path="/MyCollection/:albumId(\d+)"
                                 render={props => <AlbumDetail {...props} />}
                             />
                             <Route
                                 exact
-                                path="/albums/edit/:albumId(\d+)"
+                                path="/MyCollection/edit/:albumId(\d+)"
                                 render={props => <AlbumForm {...props} />}
                             />
                             <Route
-                                path="/albums/create-track"
+                                path="/MyCollection/create-track"
                                 render={props => <TrackForm {...props} />}
-                            />
-                            <Route
-                                exact
-                                path="/albums"
-                                render={props => <MixtapeList {...props} />}
                             />
                         </TrackProvider>
                     </ArtistProvider>
-                </MixtapeProvider>
+                {/* </MixtapeProvider> */}
             </AlbumProvider>
 
             <AlbumProvider>
                 <ArtistProvider>
                     <TrackProvider>
-                        {/* Render the location list when http://localhost:3000/ */}
-                        <Route exact path="/tracks">
-                            <TrackList />
-                        </Route>
+                        <MixtapeProvider>
+                            {/* Render the location list when http://localhost:3000/ */}
+                            <Route
+                                exact
+                                path="/tracks"
+                                render={props => <MixtapeList {...props} />}
+                            />
+                            <Route
+                            exact
+                            path="/tracks/create-mixtape"
+                            render={props => <MixtapeForm {...props} />}
+                            />
+                            <Route
+                                exact
+                                path="/tracks/edit/mixtapeId(\d+)"
+                                render={props => <MixtapeForm {...props} />}
+                            />
+                            <Route
+                                exact
+                                path="/tracks"
+                                render={props => <TrackList {...props} />}
+                            />
+                        </MixtapeProvider>
                     </TrackProvider>
                 </ArtistProvider>
             </AlbumProvider>
