@@ -29,7 +29,7 @@ export default props => {
                 userId: currentTrackUser
 
             })
-            .then(() => props.history.push("/tracks"))
+            .then(() => props.history.push("/MyCollection"))
         }
     }
 

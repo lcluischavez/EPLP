@@ -16,9 +16,9 @@ export default (props) => {
     const wishitems = albums.filter(album=> album.albumTypeId === 3)
 
     return (
-        <div className="albums">
+        <div className="albumSec">
+            <section className="mainAlbSec">
             <h1>My Collection</h1>
-            <section>
                 <h2>CDs</h2>
                 <button className="button2" onClick={() => props.history.push("/MyCollection/create-artist")}>
                     Add Artist & Album
@@ -51,7 +51,7 @@ export default (props) => {
                     }
                 </article>
             </section>
-            <section>
+            <section className="wishAlbSec">
                 <h2>Wishlist</h2>
                 <article className="albumList">
                     {

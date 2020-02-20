@@ -33,7 +33,7 @@ address {
   margin: 0 0 1.5em;
 }
 
-.background {
+/* .background {
     background-image: url(./EPLPLogo.png), url(https://st8mnt.com/wp-content/uploads/2017/06/ST8MNT_which-stage_hero.png);
     background-size: contain;
     background-repeat: no-repeat;
@@ -41,7 +41,7 @@ address {
     background-size: 240px, 100%;
     width: 100%;
     height: 300px;
-}
+} */
 
 body {
   background-color: tan;

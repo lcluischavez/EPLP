@@ -17,18 +17,20 @@ export default props => {
     return (
         <form className="artistForm">
             <h2 className="artistForm__title">New Arist</h2>
-            <div className="form-group">
-                <label htmlFor="artistName">Artist name</label>
-                <input
-                    type="text"
-                    id="artistName"
-                    ref={artistName}
-                    required
-                    autoFocus
-                    className="form-control"
-                    placeholder="Artist name"
-                />
-            </div>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="artistName">Artist name</label>
+                    <input
+                        type="text"
+                        id="artistName"
+                        ref={artistName}
+                        required
+                        autoFocus
+                        className="form-control"
+                        placeholder="Artist name"
+                    />
+                </div>
+            </fieldset>
             <button type="submit"
                 onClick={
                     evt => {

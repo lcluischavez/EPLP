@@ -9,9 +9,6 @@ import Navbar from "./nav/Navbar"
 
 export default () => (
     <>
-        <header>
-            <section className="background"></section>
-        </header>
         <Route render={() => {
             if (localStorage.getItem("currentUser")) {
                 return (
