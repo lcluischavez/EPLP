@@ -18,6 +18,7 @@
 
 .navbar__link {
     text-decoration:none ;
+    color: white;
 }
 
 header img {
@@ -40,7 +41,8 @@ header img {
 }
 
 header {
-    background-color: rgb(255, 255, 255);
+    background-color:#203f5f;
+    opacity: .9;
     position: fixed;
     top: 0;
     left: 0;

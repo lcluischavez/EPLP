@@ -24,45 +24,52 @@ export default props => {
 
 
     return (
-        <section className="trackList">
-            <h3 className="album__name">{album.name}</h3>
-            <div className="album__owner">{artist.name}</div>
-            <div className="album__kind">{albumType.name}</div>
-            <ul>
-                {foundTracks.map(tra => (
-                    <li key={tra.id} value={tra.id}>
-                        {tra.name}
-                    </li>
-                ))}
-            </ul>
-            <a className="but">
-                <button className="button1" onClick={() => props.history.push("/MyCollection/create-track")}>
-                    Add Track
-                </button>
-            </a>
-            <br />
-            <a className="but">
-                <button
-                className="button2"
-                onClick={() => {
-                    props.history.push(`/MyCollection/edit/${album.id}`);
-                }}
-                >
-                Edit
-                </button>
-            </a>
-            <a className="but">
-                <button
-                    className="button2"
-                    onClick={() => {
-                        releaseAlbum(chosenAlbumId).then(() => {
-                            props.history.push("/MyCollection");
-                        });
-                    }}
-                >
-                    Delete
-                </button>
-            </a>
-        </section>
+        <>
+            <section className="details">
+                <div className="trackAlb">
+                    <img className="albArt" src={album.artwork} alt="artwork img" />        
+                </div>
+                <div className="trackList">
+                    <h3 className="album__name">{album.name}</h3>
+                    <div className="album__owner">{artist.name}</div>
+                    <div className="album__kind">{albumType.name}</div>
+                    <ul className="tracks">
+                        {foundTracks.map(tra => (
+                            <li className="singleTrack" key={tra.id} value={tra.id}>
+                                {tra.trackNumber}. {tra.name}
+                            </li>
+                        ))}
+                    </ul>
+                    <a className="but">
+                        <button className="button1" onClick={() => props.history.push("/MyCollection/create-track")}>
+                            Add Track
+                        </button>
+                    </a>
+                    <br />
+                    <a className="but">
+                        <button
+                        className="button2"
+                        onClick={() => {
+                            props.history.push(`/MyCollection/edit/${album.id}`);
+                        }}
+                        >
+                        Edit
+                        </button>
+                    </a>
+                    <a className="but">
+                        <button
+                            className="button2"
+                            onClick={() => {
+                                releaseAlbum(chosenAlbumId).then(() => {
+                                    props.history.push("/MyCollection");
+                                });
+                            }}
+                        >
+                            Delete
+                        </button>
+                    </a>
+                </div>
+            </section>
+        </>
     );
 };

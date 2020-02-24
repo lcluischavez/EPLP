@@ -18,7 +18,7 @@ export default (props) => {
     return (
         <div className="albumSec">
             <section className="mainAlbSec">
-            <h1>My Collection</h1>
+            <h1 className="title">My Collection</h1>
                 <h2>CDs</h2>
                 <button className="button2" onClick={() => props.history.push("/MyCollection/create-artist")}>
                     Add Artist & Album

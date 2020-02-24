@@ -1,5 +1,13 @@
-img {
+.artclip {
     max-height: 200px;
+}
+
+h1{
+    font-size: 37px;
+}
+
+h2{
+    font-size: 25px;
 }
 
 .albumList {
@@ -8,8 +16,13 @@ img {
     justify-content: space-between;
 }
 
+.album__name {
+    text-decoration: none;
+    text-align: center;
+}
+
 .album {
-    flex-basis: 25%;
+    flex-basis: 20%;
     margin: 1em;
     padding: 1em;
     display: flex;
@@ -21,17 +34,29 @@ fieldset {
     margin: 0.5rem 0;
     padding: 0.5rem;
 }
+.details{
+    display: flex;
+}
+.trackAlb {
+    display: flex;
+    flex-basis: 40%;
+}
 
+.albArt {
+    max-height: 350px;
+    max-width: 350px;
+    margin-top: 20px;
+    margin-left: 20px
+}
 .trackList{
-    margin: 1em;
-    padding: 1em;
+    margin-top: 15px;
+    color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex-basis: 100%;
     border: 1px solid white;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+    background-color: dimgrey;
 }
 
 .artclip {
@@ -87,6 +112,14 @@ a.but:hover {
     }
 }
 
+.tracks {
+    list-style: none;
+}
+
+.singleTrack {
+    margin-bottom: 5px;
+}
+
 
 
 /* .albumSec {
@@ -105,3 +138,4 @@ a.but:hover {
 
 
 } */
+
